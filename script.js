@@ -4,6 +4,10 @@ const listItems = document.getElementById('item-list');
 const addItemBtn = document.getElementById('add-item');
 const removeAllBtn = document.getElementById('clear');
 const filter = document.getElementById('filter');
+// Edit mode
+let isEditMode = false;
+const itemForm = document.getElementById('item-form');
+const formBtn = itemForm.querySelector('button');
 
 // console.log(addItemBtn);
 
@@ -67,9 +71,32 @@ function removeItem(e) {
     if (confirm('Deseja excluir esse item da lista?')) {
       currentItem.remove();
     }
+    // Edit mode
+  } else {
+    setItemToEdit(e.target);
   }
 }
 
+// Edit Item function
+// function setItemToEdit(item) {
+//   isEditMode = true;
+//   listItems.querySelectorAll('li').forEach((item) => {
+//     item.classList.remove('edit-mode');
+//   });
+//   item.classList.add('edit-mode');
+//   formBtn.innerHTML = '<i class = "fa-solid fa-pen"></i> Update Item';
+//   formBtn.style.backgroundColor = '#228b22';
+//   input.value = item.textContent;
+// }
+
+// Check for edit mode
+
+// if (isEditMode) {
+//   const itemToEdit = listItems.querySelector('edit-mode');
+//   itemToEdit.classList.remove('edit-mode');
+//   itemToEdit.remove();
+//   isEditMode = false;
+// }
 // Event Listeners
 addItemBtn.addEventListener('click', addNewItem);
 removeAllBtn.addEventListener('click', removeAll);
