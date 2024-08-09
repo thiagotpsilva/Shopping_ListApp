@@ -40,6 +40,13 @@ function addNewItem(e) {
   const icon = document.createElement('i');
   icon.className = 'fa-solid fa-xmark';
   button.appendChild(icon);
+
+  if (categoryInput == 'Alimentação') {
+    li.style.backgroundColor = '#ccc';
+  } else if (categoryInput == 'Higiene Pessoal') {
+    li.style.backgroundColor = 'green';
+    li.style.color = 'white';
+  }
 }
 
 // Remove All function
@@ -50,6 +57,7 @@ function removeAll() {
     item.remove();
   });
   filter.remove();
+  // removeAllBtn.remove();
 }
 
 // Remove Item function
